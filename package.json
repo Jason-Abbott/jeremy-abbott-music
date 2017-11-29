@@ -1,0 +1,27 @@
+{
+   "name": "jeremy-abbott-music",
+   "description": "Jeremy Abbott Music",
+   "version": "1.0.0",
+   "private": false,
+   "author": {
+     "name": "Jason Abbott"
+   },
+   "license": "MIT",
+   "devDependencies": {
+     "@types/es6-promise": "^0.0.33",
+     "ts-node": "^3.3.0",
+     "tsconfig-paths": "^2.2.0",
+     "tslint": "^5.5.0",
+     "tslint-consistent-codestyle": "^1.6.0",
+     "typescript": "^2.5.0"
+   },
+   "repository": {
+     "type": "git",
+     "url": "https://github.com/Jason-Abbott/jeremy-abbott-music"
+   },
+   "main": "index",
+   "bugs": {
+     "url": "https://github.com/Jason-Abbott/jeremy-abbott-music/issues"
+   }
+ }
+ 
