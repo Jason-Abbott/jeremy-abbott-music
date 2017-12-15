@@ -8,46 +8,100 @@
       <meta property="og:url" content="https://www.jeremy-abbott.com/"/>
       <meta property="og:site_name" content="Jeremy Abbott Music"/>
       <title>Jeremy Abbott Music</title>
-      <link href="https://fonts.googleapis.com/css?family=Bree+Serif|Dosis:400,700" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light" rel="stylesheet">
       <style type="text/css">
          body {
+            /* https://www.smashingmagazine.com/2015/11/using-system-ui-fonts-practical-guide/ */
+            font-family: -apple-system, BlinkMacSystemFont,
+               "Segoe UI", "Roboto", "Oxygen",
+               "Ubuntu", "Cantarell", "Fira Sans",
+               "Droid Sans", "Helvetica Neue", sans-serif;
+            color: #444;
             margin: 0;
             padding: 0;
-            background-color: #000;
             overflow-x: hidden;
-         }
-         img#main-image {
-            top: 0;
-            position: fixed;
-            width: 100%;
-            z-index: 50;
+            background-color: #000;
+            background-image: url(./img/guitar-perspective.jpg);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
          }
          section {
             width: 100%;
             z-index: 100;
-            background-color: #fff;
-            height: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
             padding: 1rem;
-            margin-bottom: 2rem;
-         }
-         section:first-of-type {
-            margin-top: 700px;
+            margin-bottom: 8rem;
+            box-sizing: border-box;
          }
 
+         section:hover {
+            background-color: #fff;
+         }
+
+         section.intro {
+            margin-top: 30rem;
+         }
+
+         h1, h2 {
+            font-family: "Shadows Into Light", cursive;
+            margin: 0;
+         }
+
+         section h1 {
+            font-size: 3rem;
+         }
+
+         section h2 {
+            text-align: center;
+            text-transform: uppercase;            
+         }
+
+         img#head-shot {
+            width: 25rem;
+            float: right;
+         }
+
+         #links {
+            display: flex;
+            flex-direction: row;
+         }
+
+         #links img { width: 50%; }
+
+         div.discography {
+            height: 500px;
+            border: 1px solid #444;
+            width: 20rem;
+            margin: 2rem 0 3rem 10rem;
+         }
       </style>
    </head>
    <body>
-      <img id="main-image" src="./img/guitar-perspective.jpg"/>
-      <section>
-         Jeremy Abbott Music
+      <section class="intro">
+         <img id="head-shot" src="./img/jeremy-smiling.jpg"/>
+         <h1>Jeremy Abbott Music</h1>
+         
+         <div id="links">
+            <a href="https://www.facebook.com/JeremyAbbottMusic/"><img src="./img/fb.png"/></a>
+            <a href="https://www.youtube.com/channel/UC8CT2JsvhwecoFXHnBUTYvw/"><img src="./img/youtube.png"/></a>
+            <a href="https://open.spotify.com/user/jeremychadabbott/playlist/0KVsKSPRQL19xgKLqTxu4K"><img src="./img/twitter.png"/></a>
+            <a href="https://www.amazon.com/s/ref=ntt_srch_drd_B001UADQPU?ie=UTF8&field-keywords=Jeremy%20Abbott&index=digital-music&search-type=ss"><img src="./img/instagram.png"/></a>
+         </div>
       </section>
 
-      <section>
-         <h1>Music</h1>
+      <section class="music">
+         <h2>Music</h2>
+         <div class="discography">
+            Discography widget
+         </div>
       </section>
       
-      <section>
-         <h1>Contact</h1>
+      <section class="contact">
+         <h2>Contact</h2>
+         <ul>
+            <li>Jeremy Abbott</li>
+            <li>jeremy@someaddress.com</li>
+         </ul>
       </section>      
    </body>
 </html>
