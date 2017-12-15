@@ -22,6 +22,7 @@
             overflow-x: hidden;
             background-color: #000;
             background-image: url(./img/guitar-perspective.jpg);
+            background-size: contain;
             background-repeat: no-repeat;
             background-attachment: fixed;
          }
@@ -64,9 +65,14 @@
          #links {
             display: flex;
             flex-direction: row;
+            align-items: center;
          }
 
-         #links img { width: 50%; }
+         #links img {
+            height: 3rem;
+            margin-right: 1rem;
+
+         }
 
          div.discography {
             height: 500px;
@@ -82,10 +88,11 @@
          <h1>Jeremy Abbott Music</h1>
          
          <div id="links">
-            <a href="https://www.facebook.com/JeremyAbbottMusic/"><img src="./img/fb.png"/></a>
-            <a href="https://www.youtube.com/channel/UC8CT2JsvhwecoFXHnBUTYvw/"><img src="./img/youtube.png"/></a>
-            <a href="https://open.spotify.com/user/jeremychadabbott/playlist/0KVsKSPRQL19xgKLqTxu4K"><img src="./img/twitter.png"/></a>
-            <a href="https://www.amazon.com/s/ref=ntt_srch_drd_B001UADQPU?ie=UTF8&field-keywords=Jeremy%20Abbott&index=digital-music&search-type=ss"><img src="./img/instagram.png"/></a>
+            <a href="https://www.facebook.com/JeremyAbbottMusic/"><img src="./img/facebook.svg"/></a>
+            <a href="https://www.youtube.com/channel/UC8CT2JsvhwecoFXHnBUTYvw/"><img src="./img/youtube.svg"/></a>
+            <a href="https://open.spotify.com/user/jeremychadabbott/playlist/0KVsKSPRQL19xgKLqTxu4K"><img src="./img/spotify.svg"/></a>
+            <a href="https://www.amazon.com/s/ref=ntt_srch_drd_B001UADQPU?ie=UTF8&field-keywords=Jeremy%20Abbott&index=digital-music&search-type=ss"><img src="./img/amazon.svg"/></a>
+            <a href=""><img src="./img/itunes.svg"/></a>
          </div>
       </section>
 
