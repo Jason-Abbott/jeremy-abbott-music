@@ -3,6 +3,7 @@
    <head>
       <meta charset="UTF-8">
       <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta property="og:title" content="Jeremy Abbott Music"/>
       <meta property="og:type" content="website"/>
       <meta property="og:url" content="https://www.jeremy-abbott.com/"/>
@@ -10,6 +11,16 @@
       <title>Jeremy Abbott Music</title>
       <link rel="icon" href="/favicon.ico?v=1.0"> 
       <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light" rel="stylesheet">
+      <script>
+         document.addEventListener("DOMContentLoaded", function() {
+            var addr = "Wrerzl@Wrerzlnoobgg.arg".replace(/[a-zA-Z]/g, function(c) {
+               return String.fromCharCode((c<="Z"?90:122)>=(c=c.charCodeAt(0)+13)?c:c-26);
+            });
+            var link = document.getElementById("email-link");
+            link.setAttribute("href", "mailto:" + addr);
+         });
+      </script>
+      <script src='./scrollama.min.js'></script>
       <style type="text/css">
          body {
             /* https://www.smashingmagazine.com/2015/11/using-system-ui-fonts-practical-guide/ */
@@ -27,6 +38,15 @@
             background-repeat: no-repeat;
             background-attachment: fixed;
          }
+
+         #logo {
+            top: 10px;
+            left: 10px;
+            width: 10%;
+            position: fixed;
+            opacity: 0.8;
+         }
+
          section {
             width: 100%;
             z-index: 100;
@@ -34,6 +54,7 @@
             padding: 1rem 15%;
             margin-bottom: 8rem;
             box-sizing: border-box;
+            transition: background-color 0.5s ease;
          }
 
          section:hover {
@@ -55,61 +76,82 @@
 
          section h2 {
             text-align: center;
-            text-transform: uppercase;            
+            text-transform: uppercase;
+            font-size: 2rem;
+          
          }
 
          img#head-shot {
-            width: 25rem;
+            width: 15rem;
             float: right;
+         }
+
+         #summary {
+            height: 10rem;
          }
 
          #links {
             display: flex;
             flex-direction: row;
             align-items: center;
+            clear: both;
          }
 
          #links img {
             height: 3rem;
-            margin-right: 1rem;
-
+            margin-right: 1.5rem;
          }
 
          div.discography {
-            height: 500px;
-            border: 1px solid #444;
-            width: 20rem;
-            margin: 2rem 0 3rem 10rem;
+            display: flex;
+            flex-direction: row;
+            margin: 0;
          }
+
+         div.album {
+            width: 20%;
+            margin: 1rem;
+            height: 15rem;
+            border: 1px solid black;
+         }
+
       </style>
    </head>
    <body>
+      <img id="logo" src="./img/jam-logo.png"/>
       <section class="intro">
          <img id="head-shot" src="./img/jeremy-smiling.jpg"/>
          <h1>Jeremy Abbott Music</h1>
-         
+         <div id="summary">
+            Summary
+         </div>
          <div id="links">
             <a href="https://www.facebook.com/JeremyAbbottMusic/"><img src="./img/facebook.svg"/></a>
             <a href="https://www.youtube.com/channel/UC8CT2JsvhwecoFXHnBUTYvw/"><img src="./img/youtube.svg"/></a>
             <a href="https://open.spotify.com/user/jeremychadabbott/playlist/0KVsKSPRQL19xgKLqTxu4K"><img src="./img/spotify.svg"/></a>
             <a href="https://www.amazon.com/s/ref=ntt_srch_drd_B001UADQPU?ie=UTF8&field-keywords=Jeremy%20Abbott&index=digital-music&search-type=ss"><img src="./img/amazon.svg"/></a>
-            <a href=""><img src="./img/itunes.svg"/></a>
+            <a href="https://itunes.apple.com/us/artist/jeremy-abbott/974950729"><img src="./img/itunes.svg"/></a>
          </div>
       </section>
 
       <section class="music">
-         <h2>Music</h2>
+         <h2>Music</h2>         
          <div class="discography">
-            Discography widget
+            <div class="album">
+               Album 1
+            </div>
+            <div class="album">
+               Album 2
+            </div>
+            <div class="album">
+               Album 3
+            </div>
          </div>
       </section>
       
       <section class="contact">
          <h2>Contact</h2>
-         <ul>
-            <li>Jeremy Abbott</li>
-            <li>jeremy@someaddress.com</li>
-         </ul>
+         <a id="email-link" href="">E-mail Jeremy Abbott</a>
       </section>      
    </body>
 </html>
