@@ -9,16 +9,43 @@
       <meta property="og:url" content="https://www.jeremy-abbott.com/"/>
       <meta property="og:site_name" content="Jeremy Abbott Music"/>
       <title>Jeremy Abbott Music</title>
-      <link rel="icon" href="/favicon.ico?v=1.0"> 
+      <link rel="icon" href="./favicon.ico?v=1.0"> 
       <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light" rel="stylesheet">
       <script>
          document.addEventListener("DOMContentLoaded", function() {
-            var addr = "Wrerzl@Wrerzlnoobgg.arg".replace(/[a-zA-Z]/g, function(c) {
+            assignEncodedEmail("Wrerzl@Wrerzlnoobgg.arg");
+            initScrolling();           
+         });
+
+         // Link to ROT13 encoded e-mail address
+         function assignEncodedEmail(encoded) {
+            var addr = encoded.replace(/[a-zA-Z]/g, function(c) {
                return String.fromCharCode((c<="Z"?90:122)>=(c=c.charCodeAt(0)+13)?c:c-26);
             });
             var link = document.getElementById("email-link");
-            link.setAttribute("href", "mailto:" + addr);
-         });
+            if (link) { link.setAttribute("href", "mailto:" + addr); }
+         }
+
+         function initScrolling() {            
+            var sections = document.getElementsByTagName("section");
+
+            if (sections && sections.length) {               
+               var scroller = scrollama();
+
+               // for (var i = 0; i < sections.length; i++) {
+               //    var sec = sections[i];
+               //    //var v = 100 + Math.floor(Math.random() * window.innerHeight / 4);
+				   //    //sec.style.padding = v + 'px 0px';
+               // };
+
+               scroller
+                  .setup({ step: "section" })
+                  .onStepEnter(function(res) { res.element.classList.add("active"); })
+                  .onStepExit(function(res)  { res.element.classList.remove("active"); });
+
+               window.addEventListener("resize", scroller.resize);
+            }
+         }
       </script>
       <script src='./scrollama.min.js'></script>
       <style type="text/css">
@@ -57,7 +84,7 @@
             transition: background-color 0.5s ease;
          }
 
-         section:hover {
+         section:hover, section.active {
             background-color: #fff;
          }
 
