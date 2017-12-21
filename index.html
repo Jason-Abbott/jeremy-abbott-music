@@ -92,6 +92,16 @@
             margin-top: 30rem;
          }
 
+         section.music {
+            background-color: rgba(255, 255, 255, 0.4);
+            text-align: center;
+         }
+
+         section.music iframe {
+            display: block;
+            margin: 0 auto;
+         }
+
          h1, h2 {
             font-family: "Shadows Into Light", cursive;
             margin: 0;
@@ -110,48 +120,57 @@
 
          img#head-shot {
             width: 15rem;
-            float: right;
+            float: left;
          }
 
-         #summary {
-            height: 10rem;
+         #summary p {
+            font-size: 1.4rem;
+         }
+
+         #summary img {
+            margin-right: 1.5rem;
+            box-shadow: 0 0 6px 2px rgba(0, 0, 0, 0.5);
+         }
+
+         #tag {
+            clear: both;
+            text-align: center;
          }
 
          #links {
+            float: right;
             display: flex;
             flex-direction: row;
             align-items: center;
-            clear: both;
+            margin-top: 1rem;
          }
 
          #links img {
             height: 3rem;
             margin-right: 1.5rem;
+            opacity: 0.7;
          }
 
-         div.discography {
-            display: flex;
-            flex-direction: row;
-            margin: 0;
+         #links img:hover { opacity: 1; }
+
+         @media only screen and (max-width: 768px) {
+           
          }
 
-         div.album {
-            width: 20%;
-            margin: 1rem;
-            height: 15rem;
-            border: 1px solid black;
+         @media only screen and (max-width: 1024px) {
+            #links { float: none; }
+            #summary p { font-size: 1rem; }            
          }
 
+         @media only screen and (max-width: 1350px) {
+            #links img { height: 2rem; }
+            section h1 { font-size: 2.5rem; }
+         }
       </style>
    </head>
    <body>
-      <img id="logo" src="./img/jam-logo.png"/>
-      <section class="intro">
-         <img id="head-shot" src="./img/jeremy-smiling.jpg"/>
-         <h1>Jeremy Abbott Music</h1>
-         <div id="summary">
-            Summary
-         </div>
+      <img id="logo" src="./img/jam-logo.png"/>      
+      <section class="intro">         
          <div id="links">
             <a href="https://www.facebook.com/JeremyAbbottMusic/"><img src="./img/facebook.svg"/></a>
             <a href="https://www.youtube.com/channel/UC8CT2JsvhwecoFXHnBUTYvw/"><img src="./img/youtube.svg"/></a>
@@ -160,14 +179,20 @@
             <a href="https://store.cdbaby.com/Artist/JeremyAbbott"><img src="./img/cdbaby.svg"/></a>
             <a href="https://itunes.apple.com/us/artist/jeremy-abbott/974950729"><img src="./img/itunes.svg"/></a>
          </div>
+         <h1>Jeremy Abbott Music</h1>
+
+         <div id="summary">
+            <img id="head-shot" src="./img/jeremy-smiling.jpg"/>
+            <p>Forged in the late eighties and early nineties. Honed in the modern century. I enjoy a lot of different styles and they occasionally all bleed through. I guess they call that Americana sometimes.</p>
+         </div>
+
+         <div id="tag">
+            Singer/song writer/guitarist
+         </div>      
       </section>
 
       <section class="music">
-         <h2>Music</h2>
-         <div id="albums">
-            <iframe src="https://open.spotify.com/embed?uri=spotify:user:jeremychadabbott:playlist:0KVsKSPRQL19xgKLqTxu4K&theme=white" width="400" height="720" frameborder="0" allowtransparency="true"></iframe>
-         </div>
-
+         <iframe src="https://open.spotify.com/embed?uri=spotify:user:jeremychadabbott:playlist:0KVsKSPRQL19xgKLqTxu4K&theme=dark" width="400" height="720" frameborder="0" allowtransparency="true"></iframe>
       </section>
       
       <section class="contact">
