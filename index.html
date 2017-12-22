@@ -32,14 +32,8 @@
             if (sections && sections.length) {               
                var scroller = scrollama();
 
-               // for (var i = 0; i < sections.length; i++) {
-               //    var sec = sections[i];
-               //    //var v = 100 + Math.floor(Math.random() * window.innerHeight / 4);
-				   //    //sec.style.padding = v + 'px 0px';
-               // };
-
                scroller
-                  .setup({ step: "section" })
+                  .setup({ step: "section", offset: 0.4 })
                   .onStepEnter(function(res) { res.element.classList.add("active"); })
                   .onStepExit(function(res)  { res.element.classList.remove("active"); });
 
@@ -71,7 +65,8 @@
             left: 10px;
             width: 10%;
             position: fixed;
-            opacity: 0.8;
+            opacity: 0.8;      
+            animation: 2s ease-in-out 0.1s forwards spin;
          }
 
          section {
@@ -90,7 +85,7 @@
 
          section.intro {
             margin-top: 30rem;
-         }
+         }         
 
          section.music {
             background-color: rgba(255, 255, 255, 0.4);
@@ -100,6 +95,10 @@
          section.music iframe {
             display: block;
             margin: 0 auto;
+         }
+
+         section.contact {
+            text-align: center;
          }
 
          h1, h2 {
@@ -118,23 +117,27 @@
           
          }
 
-         img#head-shot {
-            width: 15rem;
-            float: left;
-         }
-
          #summary p {
             font-size: 1.4rem;
          }
 
-         #summary img {
+         section.intro #summary img {
+            width: 15rem;
+            float: left;
+            border: 1px solid black;
+            filter: grayscale(100%);
             margin-right: 1.5rem;
-            box-shadow: 0 0 6px 2px rgba(0, 0, 0, 0.5);
+         }
+
+         section.intro:hover #summary img {
+            filter: grayscale(0);
+            transition: filter 1s ease-in-out;
          }
 
          #tag {
             clear: both;
             text-align: center;
+            padding-top: 1rem;
          }
 
          #links {
@@ -165,6 +168,16 @@
          @media only screen and (max-width: 1350px) {
             #links img { height: 2rem; }
             section h1 { font-size: 2.5rem; }
+         }
+
+         @keyframes saturate {
+            from { filter: grayscale(100%); }
+              to { filter: grayscale(0); }
+         }
+
+         @keyframes spin {
+            from { transform: rotateX(720deg); }
+              to { transform: rotateX(0); }
          }
       </style>
    </head>
