@@ -9,12 +9,12 @@
       <meta property="og:url" content="https://www.jeremy-abbott.com/"/>
       <meta property="og:site_name" content="Jeremy Abbott Music"/>
       <title>Jeremy Abbott Music</title>
-      <link rel="icon" href="./favicon.ico?v=1.0"> 
+      <link rel="icon" href="./favicon.ico?v=1.0">
       <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light" rel="stylesheet">
       <script>
          document.addEventListener("DOMContentLoaded", function() {
             assignEncodedEmail("Wrerzl@Wrerzlnoobgg.arg");
-            initScrolling();           
+            initScrolling();
          });
 
          // Link to ROT13 encoded e-mail address
@@ -26,10 +26,10 @@
             if (link) { link.setAttribute("href", "mailto:" + addr); }
          }
 
-         function initScrolling() {            
+         function initScrolling() {
             var sections = document.getElementsByTagName("section");
 
-            if (sections && sections.length) {               
+            if (sections && sections.length) {
                var scroller = scrollama();
 
                scroller
@@ -43,6 +43,9 @@
       </script>
       <script src='./scrollama.min.js'></script>
       <style type="text/css">
+         html {
+            width: 100%;
+         }
          body {
             /* https://www.smashingmagazine.com/2015/11/using-system-ui-fonts-practical-guide/ */
             font-family: -apple-system, BlinkMacSystemFont,
@@ -55,9 +58,11 @@
             overflow-x: hidden;
             background-color: #000;
             background-image: url(./img/guitar-perspective.jpg);
-            background-size: contain;
+            background-size: cover;
             background-repeat: no-repeat;
             background-attachment: fixed;
+            background-position: 60% 0;
+            animation: animatedBackground 120s linear infinite;
          }
 
          #logo {
@@ -65,7 +70,7 @@
             left: 10px;
             width: 10%;
             position: fixed;
-            opacity: 0.8;      
+            opacity: 0.8;
             animation: 2s ease-in-out 0.1s forwards spin;
          }
 
@@ -85,7 +90,7 @@
 
          section.intro {
             margin-top: 30rem;
-         }         
+         }
 
          section.music {
             background-color: rgba(255, 255, 255, 0.4);
@@ -114,7 +119,7 @@
             text-align: center;
             text-transform: uppercase;
             font-size: 2rem;
-          
+
          }
 
          #summary p {
@@ -140,7 +145,7 @@
             padding-top: 1rem;
          }
 
-         #links {
+         .links {
             float: right;
             display: flex;
             flex-direction: row;
@@ -148,25 +153,35 @@
             margin-top: 1rem;
          }
 
-         #links img {
+         .links img {
             height: 3rem;
             margin-right: 1.5rem;
             opacity: 0.7;
          }
 
-         #links img:hover { opacity: 1; }
+         .links img:hover { opacity: 1; }
 
          @media only screen and (max-width: 768px) {
-           
+
          }
 
          @media only screen and (max-width: 1024px) {
-            #links { float: none; }
-            #summary p { font-size: 1rem; }            
+            #logo {
+               left: 50%;
+               z-index: 100;
+               width: 10%;
+               position: absolute;
+            }
+            section {
+               margin-bottom: 4rem;
+               transition: none;
+            }
+            .links { float: none; }
+            #summary p { font-size: 1rem; }
          }
 
          @media only screen and (max-width: 1350px) {
-            #links img { height: 2rem; }
+            .links img { height: 2rem; }
             section h1 { font-size: 2.5rem; }
          }
 
@@ -179,16 +194,26 @@
             from { transform: rotateX(720deg); }
               to { transform: rotateX(0); }
          }
+
+         @keyframes animatedBackground {
+            0% { background-position: 60% 0; }
+            50% { background-position: 0 0; }
+            75% { background-position: 100% 0; }
+            100% { background-position: 60% 0; }
+         }
+
       </style>
    </head>
    <body>
-      <img id="logo" src="./img/jam-logo.png"/>      
-      <section class="intro">         
-         <div id="links">
+      <img id="logo" src="./img/jam-logo.png"/>
+      <section class="intro">
+         <div class="links" id="social-links">
             <a href="https://www.facebook.com/JeremyAbbottMusic/"><img src="./img/facebook.svg"/></a>
             <a href="https://www.youtube.com/channel/UC8CT2JsvhwecoFXHnBUTYvw/"><img src="./img/youtube.svg"/></a>
+         </div>
+         <div class="links" id="music-links">
             <a href="https://open.spotify.com/artist/56twM7vvrh0tKErFw7272U"><img src="./img/spotify.svg"/></a>
-            <a href="https://www.amazon.com/s/ref=ntt_srch_drd_B001UADQPU?ie=UTF8&field-keywords=Jeremy%20Abbott&index=digital-music&search-type=ss"><img src="./img/amazon.svg"/></a>            
+            <a href="https://www.amazon.com/s/ref=ntt_srch_drd_B001UADQPU?ie=UTF8&field-keywords=Jeremy%20Abbott&index=digital-music&search-type=ss"><img src="./img/amazon.svg"/></a>
             <a href="https://store.cdbaby.com/Artist/JeremyAbbott"><img src="./img/cdbaby.svg"/></a>
             <a href="https://itunes.apple.com/us/artist/jeremy-abbott/974950729"><img src="./img/itunes.svg"/></a>
          </div>
@@ -201,17 +226,17 @@
 
          <div id="tag">
             Singer/song writer/guitarist
-         </div>      
+         </div>
       </section>
 
       <section class="music">
          <!--<iframe src="https://open.spotify.com/embed?uri=spotify:user:jeremychadabbott:playlist:0KVsKSPRQL19xgKLqTxu4K&theme=dark" width="400" height="720" frameborder="0" allowtransparency="true"></iframe>-->
          <iframe name="full" style="width:100%;height:520px;border:0px;" src="//widget.cdbaby.com/391181bf-d68e-4bae-a85a-8e6a61e8aa6f/full/dark/transparent"></iframe>
       </section>
-      
+
       <section class="contact">
          <h2>Contact</h2>
          <a id="email-link" href="">E-mail Jeremy Abbott</a>
-      </section>      
+      </section>
    </body>
 </html>
