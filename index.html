@@ -29,12 +29,13 @@
       <style type="text/css">
          :root {
             /* fancy pants CSS variables */
-            --heroHeight: 831px;
+            --heroHeight: 831;
             --heroWidth: 1729px;
             --showHeight: 75vh; /*calc(1808 * 0.75); /* 75%; */
             /* how much the hero image is resized to fit 75% of screen height */
-            --resizeRatio: calc(var(--heroHeight)/var(--showHeight));
-            --heroOffset: calc((var(--heroWidth) - 100vw) * -1);
+            --resizeRatio: calc(var(--heroHeight) / 75vh);
+            --resizeRatio2: calc(var(--heroHeight) / var(--heroHeight) / 2);
+            --heroOffset: calc((var(--heroWidth) - 100vw) / 2 * var(--resizeRatio2) * -1);
          }
 
          body {
@@ -48,10 +49,6 @@
             padding: 0;
             overflow-x: hidden;
             background-color: #000;
-         }
-
-         header:after {
-            content: var(--heroOffset);
          }
 
          #hero {
