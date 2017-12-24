@@ -12,9 +12,9 @@
       <link rel="icon" href="./favicon.ico?v=1.0">
       <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light" rel="stylesheet">
       <script>
+         // Wait for page to load before configuring
          document.addEventListener("DOMContentLoaded", function() {
             assignEncodedEmail("Wrerzl@Wrerzlnoobgg.arg");
-            //initScrolling();
          });
 
          // Link to ROT13 encoded e-mail address
@@ -25,27 +25,18 @@
             var link = document.getElementById("email-link");
             if (link) { link.setAttribute("href", "mailto:" + addr); }
          }
-
-         function initScrolling() {
-            var sections = document.getElementsByTagName("section");
-
-            if (sections && sections.length) {
-               var scroller = scrollama();
-
-               scroller
-                  .setup({ step: "section", offset: 0.4 })
-                  .onStepEnter(function(res) { res.element.classList.add("active"); })
-                  .onStepExit(function(res)  { res.element.classList.remove("active"); });
-
-               window.addEventListener("resize", scroller.resize);
-            }
-         }
       </script>
-      <script src='./scrollama.min.js'></script>
       <style type="text/css">
-         html {
-            width: 100%;
+         :root {
+            /* fancy pants CSS variables */
+            --heroHeight: 831px;
+            --heroWidth: 1729px;
+            --showHeight: 75vh; /*calc(1808 * 0.75); /* 75%; */
+            /* how much the hero image is resized to fit 75% of screen height */
+            --resizeRatio: calc(var(--heroHeight)/var(--showHeight));
+            --heroOffset: calc((var(--heroWidth) - 100vw) * -1);
          }
+
          body {
             /* https://www.smashingmagazine.com/2015/11/using-system-ui-fonts-practical-guide/ */
             font-family: -apple-system, BlinkMacSystemFont,
@@ -59,13 +50,17 @@
             background-color: #000;
          }
 
-         #background {
+         header:after {
+            content: var(--heroOffset);
+         }
+
+         #hero {
             position: fixed;
             top: 0;
             z-index: -1;
-            width: 125%;
-            left: -12.5%;
-            animation: animatedBackground 60s ease-in-out infinite;
+            height: var(--showHeight);
+            left: var(--heroOffset);
+            animation: animateHero 10s ease-in-out infinite;
          }
 
          #logo {
@@ -168,9 +163,7 @@
 
          .links img:hover { opacity: 1; }
 
-         @media only screen and (max-width: 768px) {
-
-         }
+         @media only screen and (max-width: 768px) {}
 
          @media only screen and (max-width: 1024px) {
             /* style rules that apply only to phones and tablets */
@@ -219,20 +212,15 @@
             section h1 { font-size: 2.5rem; }
          }
 
-         @keyframes saturate {
-            from { filter: grayscale(100%); }
-              to { filter: grayscale(0); }
-         }
-
          @keyframes spin {
             from { transform: rotateX(720deg); }
               to { transform: rotateX(0); }
          }
 
-         @keyframes animatedBackground {
+         @keyframes animateHero {
             0% { transform: translateX(0); }
-            25% { transform: translateX(10%); }
-            75% { transform: translateX(-10%); }
+            25% { transform: translateX(calc(var(--heroOffset) * -1)); }
+            75% { transform: translateX(var(--heroOffset)); }
             100% { transform: translateX(0); }
          }
 
@@ -240,7 +228,7 @@
    </head>
    <body>
       <img id="logo" src="./img/jam-logo.png"/>
-      <img id="background" src="./img/guitar-perspective.jpg"/>
+      <img id="hero" src="./img/guitar-perspective.jpg"/>
       <section class="intro">
          <header>
             <h1>Jeremy Abbott Music</h1>
