@@ -15,9 +15,13 @@
          // Wait for page to load before configuring
          document.addEventListener("DOMContentLoaded", function() {
             assignEncodedEmail("Wrerzl@Wrerzlnoobgg.arg");
+            animateHero(75);
          });
 
-         // Link to ROT13 encoded e-mail address
+         /**
+          * Link to ROT13 encoded e-mail address
+          * @param encoded {String}
+          */
          function assignEncodedEmail(encoded) {
             var addr = encoded.replace(/[a-zA-Z]/g, function(c) {
                return String.fromCharCode((c<="Z"?90:122)>=(c=c.charCodeAt(0)+13)?c:c-26);
@@ -25,19 +29,49 @@
             var link = document.getElementById("email-link");
             if (link) { link.setAttribute("href", "mailto:" + addr); }
          }
-      </script>
-      <style type="text/css">
-         :root {
-            /* fancy pants CSS variables */
-            --heroHeight: 831;
-            --heroWidth: 1729px;
-            --showHeight: 75vh; /*calc(1808 * 0.75); /* 75%; */
-            /* how much the hero image is resized to fit 75% of screen height */
-            --resizeRatio: calc(var(--heroHeight) / 75vh);
-            --resizeRatio2: calc(var(--heroHeight) / var(--heroHeight) / 2);
-            --heroOffset: calc((var(--heroWidth) - 100vw) / 2 * var(--resizeRatio2) * -1);
+
+         /**
+          * @param percentHeight {number}
+          */
+         function animateHero(percentHeight) {
+            var el = document.getElementById("hero");
+            var timer = 0;
+
+            if (el) {
+               el.addEventListener("load", function() {
+                  var img = this;
+                  var fn = function() { setHeroOffset(img, percentHeight); }
+
+                  window.addEventListener("resize", function() {
+                     if (timer) { window.clearTimeout(timer); }
+                     timer = window.setTimeout(fn, 200);
+                  });
+
+                  fn();
+               });
+            }
          }
 
+         /**
+          * @param img {Image}
+          * @param percentHeight {number}
+          */
+         function setHeroOffset(img, percentHeight) {
+            /** @type {number} */
+            var w = img.clientWidth;
+            /** @type {number} */
+            var h = img.clientHeight;
+            var newHeight = (window.innerHeight * window.devicePixelRatio) * (percentHeight / 100);
+            var r = h / newHeight;
+            var offset = -(w - (window.innerWidth * window.devicePixelRatio)) * r;
+
+            img.style.setProperty("--heroOffset", offset + "px");
+            img.style.height = percentHeight + "vh";
+            img.style.left = offset + "px";
+            img.style.animation = "animateHero 60s ease-in-out infinite";
+         }
+      </script>
+      <style type="text/css">
          body {
             /* https://www.smashingmagazine.com/2015/11/using-system-ui-fonts-practical-guide/ */
             font-family: -apple-system, BlinkMacSystemFont,
@@ -55,9 +89,6 @@
             position: fixed;
             top: 0;
             z-index: -1;
-            height: var(--showHeight);
-            left: var(--heroOffset);
-            animation: animateHero 10s ease-in-out infinite;
          }
 
          #logo {
@@ -216,8 +247,7 @@
 
          @keyframes animateHero {
             0% { transform: translateX(0); }
-            25% { transform: translateX(calc(var(--heroOffset) * -1)); }
-            75% { transform: translateX(var(--heroOffset)); }
+            50% { transform: translateX(calc(var(--heroOffset) * -1)); }
             100% { transform: translateX(0); }
          }
 
