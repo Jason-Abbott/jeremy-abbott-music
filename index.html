@@ -61,9 +61,12 @@
             var w = img.clientWidth;
             /** @type {number} */
             var h = img.clientHeight;
-            var newHeight = (window.innerHeight * window.devicePixelRatio) * (percentHeight / 100);
+            var p = window.devicePixelRatio;
+            var newHeight = (window.innerHeight * p) * (percentHeight / 100);
             var r = h / newHeight;
-            var offset = -(w - (window.innerWidth * window.devicePixelRatio)) * r;
+            var offset = -(w - (window.innerWidth * p)) * r;
+
+            console.log(p);
 
             img.style.setProperty("--heroOffset", offset + "px");
             img.style.height = percentHeight + "vh";
