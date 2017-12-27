@@ -61,12 +61,12 @@
             var w = img.clientWidth;
             /** @type {number} */
             var h = img.clientHeight;
-            var p = window.devicePixelRatio;
+            // This is a little hoaky: mobile dimensions need multiplied by the
+            // device pixel ratio but high DPI desktop displays do not.
+            var p = window.innerWidth > 768 ? 1 : window.devicePixelRatio;
             var newHeight = (window.innerHeight * p) * (percentHeight / 100);
             var r = h / newHeight;
             var offset = -(w - (window.innerWidth * p)) * r;
-
-            console.log(p);
 
             img.style.setProperty("--heroOffset", offset + "px");
             img.style.height = percentHeight + "vh";
