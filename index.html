@@ -81,7 +81,7 @@
 
          /**
           * Link to ROT13 encoded e-mail address
-          * @param encoded {String}
+          * @param {string} encoded
           */
          function assignEncodedEmail(encoded) {
             var addr = encoded.replace(/[a-zA-Z]/g, function(c) {
@@ -92,7 +92,7 @@
          }
 
          /**
-          * @param percentHeight {number}
+          * @param {number} percentHeight
           */
          function animateHero(percentHeight) {
             var el = document.getElementById("hero");
@@ -114,8 +114,8 @@
          }
 
          /**
-          * @param img {Image}
-          * @param percentHeight {number}
+          * @param {Image} img
+          * @param {number} percentHeight
           */
          function setHeroOffset(img, percentHeight) {
             /** @type {number} */

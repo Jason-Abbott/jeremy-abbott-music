@@ -1,13 +1,13 @@
 {
   "name": "jeremy-abbott-music",
   "description": "Jeremy Abbott Music",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "private": false,
   "author": {
     "name": "Jason Abbott"
   },
-  "contributors":[
-     "Jeremy Abbott"
+  "contributors": [
+    "Jeremy Abbott"
   ],
   "license": "Apache 2.0",
   "repository": {
